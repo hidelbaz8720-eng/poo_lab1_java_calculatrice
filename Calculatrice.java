@@ -1,3 +1,4 @@
+```java
 import java.util.Scanner;
 
 public class Calculatrice {
@@ -14,7 +15,7 @@ public class Calculatrice {
         int somme = 0;
 
         for (int i = 0; i < tab.length; i++) {
-            somme = somme + tab[i];
+            somme += tab[i];
         }
 
         return (double) somme / tab.length;
@@ -33,44 +34,43 @@ public class Calculatrice {
     }
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
         int choix;
 
         do {
-            System.out.println();
-            System.out.println("=== MENU PRINCIPAL ===");
+            System.out.println("\n=== MENU PRINCIPAL ===");
             System.out.println("1. Addition");
             System.out.println("2. Multiplication");
             System.out.println("3. Moyenne");
-            System.out.println("4. Trouver le plus grand");
+            System.out.println("4. Maximum");
             System.out.println("0. Quitter");
             System.out.print("Votre choix : ");
 
             choix = sc.nextInt();
 
             switch (choix) {
-
                 case 1:
                     System.out.print("Entrez deux entiers : ");
-                    int a1 = sc.nextInt();
-                    int b1 = sc.nextInt();
-
-                    System.out.println("Résultat : " + addition(a1, b1));
+                    int a = sc.nextInt();
+                    int b = sc.nextInt();
+                    System.out.println("Résultat : " + addition(a, b));
                     break;
 
                 case 2:
                     System.out.print("Entrez deux entiers : ");
-                    int a2 = sc.nextInt();
-                    int b2 = sc.nextInt();
-
-                    System.out.println("Résultat : " + multiplication(a2, b2));
+                    int c = sc.nextInt();
+                    int d = sc.nextInt();
+                    System.out.println("Résultat : " + multiplication(c, d));
                     break;
 
                 case 3:
                     System.out.print("Combien de valeurs ? ");
                     int n = sc.nextInt();
+
+                    if (n <= 0) {
+                        System.out.println("Le nombre de valeurs doit être positif.");
+                        break;
+                    }
 
                     int[] valeurs = new int[n];
 
@@ -85,6 +85,11 @@ public class Calculatrice {
                 case 4:
                     System.out.print("Combien de nombres ? ");
                     int m = sc.nextInt();
+
+                    if (m <= 0) {
+                        System.out.println("Le nombre de valeurs doit être positif.");
+                        break;
+                    }
 
                     int[] entiers = new int[m];
 
@@ -109,3 +114,4 @@ public class Calculatrice {
         sc.close();
     }
 }
+```
